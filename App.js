@@ -29,6 +29,7 @@ const informacoes = [
 const App = () => {
   console.log(informacoes);
   return (
+    <ScrollView>
       <FlatList
         data={informacoes}
         renderItem={({item}) =>
@@ -42,6 +43,7 @@ const App = () => {
         }
         keyExtractor={item => item.id.toString()}
       />
+    </ScrollView>
   );
 };
 

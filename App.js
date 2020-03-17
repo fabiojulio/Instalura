@@ -1,15 +1,12 @@
 
 import React, {Fragment} from 'react';
 import {
-  Text,
-  StatusBar,
-  Dimensions,
-  StyleSheet,
   ScrollView,
   FlatList,
-  View,
-  Image,
 } from 'react-native';
+
+import {Cabecalho } from './src/Components/Cabecalho';
+import { Foto } from './src/Components/Foto';
 
 const informacoes = [
   {
@@ -34,11 +31,8 @@ const App = () => {
         data={informacoes}
         renderItem={({item}) =>
           <Fragment>
-            <Text>{item.usuario}</Text>
-            <Image 
-              source={require('./res/img/alura.png')}
-              style={estilo.imagem}
-            />
+            <Cabecalho item={item}/>
+            <Foto/>
           </Fragment>  
         }
         keyExtractor={item => item.id.toString()}
@@ -46,14 +40,5 @@ const App = () => {
     </ScrollView>
   );
 };
-
-const largura = Dimensions.get("screen").width;
-
-const estilo = StyleSheet.create({
-  imagem: {
-    width: largura,
-    height: largura
-  }
-})
 
 export default App;
